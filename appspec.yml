@@ -7,7 +7,7 @@ hooks:
   BeforeInstall:
     - location: deploy_scripts/install.sh
       timeout: 300
-      runas: root
+      runas: ec2-user
   ApplicationStart:
     - location: deploy_scripts/run.sh
       timeout: 120
