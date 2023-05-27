@@ -2,17 +2,17 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/node
+    destination: /home/ec2-user/express-app
 hooks:
   BeforeInstall:
-    - location: deploy_scripts/install.sh
+    - location: scripts/before_install.sh
       timeout: 300
       runas: ec2-user
   ApplicationStart:
-    - location: deploy_scripts/run.sh
-      timeout: 120
+    - location: scripts/application_start.sh
+      timeout: 300
       runas: ec2-user
-  ValidateService:
-    - location: deploy_scripts/validate.sh
-      timeout: 60
+  ApplicationStop:
+    - location: scripts/application_stop.sh
+      timeout: 300
       runas: ec2-user
