@@ -13,4 +13,4 @@ export NVM_DIR="$HOME/.nvm"
 npm install
 
 # start node app ind the background
-node ./src/index.js > app.out.log 2> app.err.log < /dev/null &
+node /src/index.js > app.out.log 2> app.err.log < /dev/null &
