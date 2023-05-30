@@ -1,26 +1,15 @@
 #!/bin/bash
 
-# install nvm dan node
-echo "CEK NVM"
-if [ ! command -v nvm &> /dev/null ]; then
-  echo "NVM TIDAK DITEMUKAN"
-  echo "NVM AKAN DIINSTALL"
+#download node and npm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+. ~/.nvm/nvm.sh
+nvm install node
 
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-  . ~/.nvm/nvm.sh
-  echo "NVM BERHASIL DIINSTALL"
-  nvm install 16
-  node -e "console.log('NODEJS ' + process.version + ' BERHASIL DIINSTALL')"
-fi
-
-# CEK DIREKTORI
-DIR="/home/ec2-user/store"
-echo "CEK DIRECTORY $DIR"
+#create our working directory if it doesnt exist
+DIR="/home/ec2-user/express-app"
 if [ -d "$DIR" ]; then
-  echo "$DIR TELAH ADA"
+  echo "${DIR} exists"
 else
-  echo "$DIR BELUM ADA"
-  echo "MEMBUAT DIRECTORY"
+  echo "Creating ${DIR} directory"
   mkdir ${DIR}
-  sudo chmod -R 777 "$DIR"
 fi
