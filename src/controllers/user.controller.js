@@ -81,3 +81,12 @@ exports.GetSinggleUser = async (req,res) => {
         data: user
     })
 }
+
+
+exports.GetHello = async (req,res) => {
+  return res.status(200).json({
+      message : "Succes",
+      data : "Hello Word"
+  })
+}
+

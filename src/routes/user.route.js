@@ -4,6 +4,7 @@ const {
   DaftarUser,
   LoginUser,
   GetSinggleUser,
+  GetHello
 } = require("../controllers/user.controller");
 const {
   runValidation,
@@ -18,4 +19,5 @@ const middleware = require("../middleware/user.middleware");
 router.post("/daftar", validationDaftar, runValidation, DaftarUser);
 router.post("/login", validationLogin, runValidation, LoginUser);
 router.get("/user", middleware, GetSinggleUser);
+router.get("/hello",GetHello);
 module.exports = router;
